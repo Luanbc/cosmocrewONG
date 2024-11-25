@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Metamorphous&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@font-face {
+    font-family: 'TheBeast';
+    src: url('fonts/TheBeast.otf') format('opentype'), 
+         url('fonts/TheBeast.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+}
+
+:root {
+    --bg-color: #ffff;
+    --text-color: #000000;
+    --main-color: #f0f0f0;
+    --other-color: #ffc633;
+    --second-color: #616060;
+
+    --h1-font: 5.5rem;
+    --h2-font: 3.5rem;
+    --p-font: 1rem;
+}
+
+body {
+    background: #dffaf0;
+    color: var(--text-color);
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: whitesmoke;
+    font-family: "Audiowide";
+    animation: pulse 2s infinite; /* Adiciona a animação */
+    padding-left: 250px;
+    box-shadow: #66636348;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0px 10px 50px black;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0px 15px 60px black;
+    }
+}
+
+.testeheader {
+    background-color: #006d56; /* Cor de fundo */
+    color: #fff;
+    box-shadow: 0 1px 6px 0 rgb(255, 255, 255);
+    padding: 15px; /* Ajuste conforme necessário */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: all .6s;
+    position: relative; /* Garantir que o header não seja fixo inicialmente */
+    z-index: 10;
+}
+
+.testeheader.fixed {
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    top: 0;
+    width: 100%;
+}
+
+.navlist {
+    transition: transform 0.3s ease-in-out;
+    display: none;
+    padding-right: 100px;
+    display: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navlist.active {
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}
+
+.navlist a {
+    display: inline-block;
+    margin: 0 30px;
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: #fff;
+    transition: all .6s;
+    font-style: bold;
+}
+
+.navlist a:hover {
+    color: #25d451; /* Altera a cor do texto ao passar o mouse */
+    background-color: #f0e5e5; /* Adiciona um fundo suave */
+    padding: 5px 10px; /* Adiciona um pequeno espaçamento */
+    border-radius: 5px; /* Deixa os cantos arredondados */
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a {
+    display: inline-block;
+    font-size: 22px;
+    color: var(--text-color);
+    margin: 0 20px;
+    transition: all .6s;
+}
+
+.nav-right a:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+#menu-icon {
+    font-size: 35px;
+    color: white;
+    z-index: 10001;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+}
+section {
+    padding: 90px 14% 70px;
+}
+
+.mission-section {
+    position: relative;
+    background-image: url('../img/brands/selva.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-color: #dffaf0;
+    height: 700px; /* Ajuste a altura conforme necessário */
+    color: black;
+    padding: 20px;
+    padding-left: 60px;
+}
+
+
+.text-content {
+    margin-left: 5%;
+    margin-top: 100px;
+    margin-bottom: 800px; 
+    max-width: 90%;
+    background-color: rgba(0, 0, 0, 0.322); /* Fundo semitransparente para melhor legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(207, 203, 203, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Isso centraliza os itens horizontalmente */
+    text-align: center; /* Isso garante que o texto dentro do contêiner também fique centralizado */
+}
+
+.text-content  h1 {
+    color: white;
+    font-family: 'Merriweather Sans';
+    font-size: 2.3em;
+    margin-bottom: 10px;
+}
+
+.text-content h2{
+    color: white;
+
+}
+
+.text-content  p {
+    color: white;
+    font-style: bolder;
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+
+.btn-contribute {
+    margin-top: 30px;
+    padding: 20px 30px;
+    color: white;
+    font-size: 1.5rem;
+    background-color: #006d56;
+    display: flex;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center; /* Garante que o texto dentro do botão também será centralizado */
+}
+
+  
+.btn-contribute:hover {
+    background-color: #00ff00;
+    color: #000;
+}
+
+section.formulario{
+    padding: 80px 4%;
+}
+
+form{
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+
+form input, form textarea{
+    width: 100%;
+    background-color: #00000027;
+    border: 0;
+    outline: 0;
+    padding: 20px 15px;
+    border-radius: 15px;
+    color: #000;
+    font-size: 18px;
+}
+
+form textarea{
+    max-height: 500px;
+}
+
+form .btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+}
+
+form .btn-enviar input{
+    width: 120px;
+    background-color: #14be4dce;
+    color: #000;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+form .btn-enviar input:hover{
+    box-shadow: 0px 0px 8px #00ff08;
+    transform: scale(1.05);
+}
+
+.interface h2{
+    font-style: bolder;
+    text-align: center;
+    font-family: 'Merriweather Sans';
+    font-weight: 700;
+    font-size: 2rem; /* Novo tamanho da fonte */
+    color: black;
+    text-shadow: 0px 10px 50px white;
+}
+
+.brands{
+    padding: 30px 14%;
+    background: var(--text-color);
+    background-color: #dffaf0;
+}
+
+.brands h1{
+    font-size: rem;
+    font-family:'Merriweather Sans';
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+.brands p{
+    font-size: rem;
+    font-family: 'Merriweather Sans';
+    text-align: center;
+}
+
+.main-brands{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.brands-c img{
+    width: 100%;
+    height: auto;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #030f0b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+  
+.social-links {
+    margin-bottom: 10px;
+}
+  
+.social-icon {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+} 
+.social-icon:hover {
+    color: #4CAF50; /* Cor de destaque ao passar o mouse */
+}
+/* botão topo*/
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #006d56;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Inicialmente invisível */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+  
+#scrollToTopBtn:hover {
+    background-color: #45a049;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 1200px) {
+    .logo {
+        padding-left: 100px; /* Reduz o espaçamento */
+        font-size: 24px; /* Ajusta o tamanho da fonte */
+    }
+
+    .navlist {
+        padding-right: 50px; /* Reduz o espaçamento */
+        gap: 10px;
+    }
+
+    .navlist a {
+        font-size: 0.9rem; /* Diminui o tamanho da fonte */
+        margin: 0 15px; /* Reduz as margens */
+    }
+
+    section {
+        padding: 70px 10%; /* Ajusta o espaçamento */
+    }
+
+    .text-content h1 {
+        font-size: 2rem; /* Reduz o tamanho do título */
+    }
+
+    .text-content p {
+        font-size: 1rem; /* Reduz o tamanho do texto */
+    }
+}
+
+@media (max-width: 768px) {
+    .testeheader {
+        flex-direction: column; /* Alinha verticalmente os itens */
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px; /* Reduz o tamanho da logo */
+        padding-left: 0; /* Remove o espaçamento à esquerda */
+        text-align: center;
+    }
+
+    .navlist {
+        display: none; /* Esconde a navegação para exibir um menu */
+    }
+
+    .navlist.active{
+        display: flex;
+    }
+
+    #menu-icon {
+        display: block; /* Exibe o ícone do menu */
+    }
+
+    .mission-section {
+        height: auto; /* Ajusta a altura para conteúdo fluido */
+        padding: 20px; /* Reduz o padding */
+    }
+
+    .text-content {
+        margin-top: 50px; /* Ajusta o espaçamento superior */
+        padding: 15px; /* Reduz o padding interno */
+    }
+
+    form {
+        padding: 10px; /* Ajusta o espaçamento do formulário */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px; /* Ajusta ainda mais a fonte */
+    }
+
+    .text-content h1 {
+        font-size: 1.8rem; /* Diminui o tamanho dos títulos */
+    }
+
+    .text-content p {
+        font-size: 0.9rem; /* Ajusta o tamanho do texto */
+    }
+
+    .btn-contribute {
+        padding: 8px 15px; /* Reduz o tamanho dos botões */
+        font-size: 0.9rem;
+    }
+
+    form input, form textarea {
+        padding: 15px 10px; /* Ajusta o padding dos campos de formulário */
+        font-size: 16px; /* Reduz o tamanho da fonte */
+    }
+
+    .footer {
+        padding: 10px 0; /* Reduz o espaçamento no rodapé */
+    }
+
+    .social-icon {
+        font-size: 20px; /* Ajusta o tamanho dos ícones sociais */
+    }
+}

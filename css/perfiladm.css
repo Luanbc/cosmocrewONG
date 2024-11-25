@@ -1,0 +1,161 @@
+/* Estilos Gerais */
+body {
+    background-color: whitesmoke;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1{
+    
+    font-size: 2rem;
+}
+
+/* perfil section */
+
+.profile{
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap; /*adaptar telas menores*/
+    
+}
+
+.profile h2{
+    font-size: 1.3rem;
+}
+
+.profile p{
+    font-size: 0.9rem;
+}
+
+.profile-edit {
+    background-color: #006d55;
+    border-radius: 8px; /*aredonda a borda*/
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.466);
+    box-sizing: border-box;
+    flex: 1 1 50%; /*ajustavel*/
+    max-width: 45%; /*largura*/
+    max-height: 100%; /*altura*/
+    padding: 10px;
+    color: white;
+    overflow: hidden; /* o conteudo não execeder o tamanho da section*/
+}
+
+/* Estilo para a foto do perfil */
+.profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Espaço entre a foto e o restante do conteúdo */
+}
+
+.profile-photo img {
+    border-radius: 50%; /* Torna a foto circular */
+    width: 150px; /* Largura da foto */
+    height: 150px; /* Altura da foto */
+    object-fit: cover; /* Ajusta a imagem para preencher o espaço sem distorcer */
+    border: 3px solid #006d55; /* Borda com cor destacada */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para realce */
+}
+
+#edit-button{
+    font-style: bolder;
+    background-color: white; /* Cor de fundo do botão */
+    color: black; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    width: 12%; /* Botão ocupa toda a largura disponível */
+}
+
+#edit-form{
+    right: 10%;
+    width: 100%; /* Ajusta o tamanho do formulário */
+    max-width: 400px; /* Define um limite de largura */
+    margin: 0 auto; /* Centraliza o formulário */
+}
+
+#edit-form label {
+    display: block; /* Faz o label ocupar toda a largura */
+    margin-bottom: 5px; /* Espaçamento entre o label e o campo */
+    font-weight: bold; /* Destaque para o texto do label */
+    font-size: 14px; /* Ajusta o tamanho da fonte */
+}
+
+#edit-form input{
+    width: 90%; /* Preenche a largura do formulário */
+    padding: 10px;
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+    border: 1px solid #ccc; /* Borda simples */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 14px; /* Tamanho da fonte */
+    color: #333; /* Cor do texto */
+    background-color: #f9f9f9; /* Fundo claro para os campos */
+    transition: border-color 0.3s ease; /* Transição para foco nos campos */
+}
+
+#edit-form button {
+    margin-left: 110px;
+    font-style: bolder;
+    background-color: white; /* Cor de fundo do botão */
+    color: black; /* Cor do texto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer;
+    width: 35%; /* Botão ocupa toda a largura disponível */
+}
+
+#edit-form input:focus {
+    border-color: #66afe9; /* Cor de destaque */
+    outline: none; /* Remove o contorno padrão */
+}
+
+a {
+    background-color: #006d56;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 6px 12px;
+    display: inline-block;
+    margin-bottom: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box-shadow adicionado */
+}
+
+a:hover {
+    background-color: #0056b3
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Adaptação para telas menores */
+@media (max-width: 768px) {
+    .projetos {
+        left: 5%; /* Centraliza melhor em telas menores */
+        width: 90%; /* Ajusta a largura */
+    }
+    .projetos-edit {
+        flex: 1 1 100%; /* Cada projeto ocupa 100% */
+        max-width: 100%;
+    }
+    .profile-photo img {
+    width: 100px; /* Reduz tamanho da foto em telas menores */
+    height: 100px;
+    }
+}
+

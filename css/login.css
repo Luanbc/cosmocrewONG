@@ -1,0 +1,204 @@
+/* Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;800&display=swap');
+
+/* Estilos Gerais */
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+/* Container para as estrelas */
+.starry-sky {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Estrelas individuais */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Animação de "piscar" */
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.main-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh; /* Centralizado verticalmente */
+    background-color: #f0f0f0;
+    padding: 20px; /* Espaçamento interno adicional */
+    background-image: url(../imgs/login1.png); /* Fundo verde-menta */
+    background-repeat: no-repeat;
+}
+
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .testeheader {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 18px;
+        padding: 0;
+        text-align: center;
+    }
+
+    .navlist {
+        display: none;
+    }
+
+    #menu-icon {
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 16px;
+    }
+
+    .navlist a {
+        font-size: 0.8rem;
+    }
+}
+
+/* Estilo do Formulário */
+
+
+.card-login {
+    width: 100%;
+    max-width: 600px; /* Aumenta ainda mais o tamanho máximo */
+    padding: 40px; /* Mais espaço interno */
+    background: white;
+    border-radius: 12px; /* Cantos levemente mais arredondados */
+    box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.card-login h1 {
+    font-family: 'Merriweather Sans';
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.textfield {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.textfield input {
+    width: 100%;
+    padding: 18px; /* Aumenta ainda mais o espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados mais suaves */
+    border: 1px solid #ccc;
+    font-size: 1.2rem; /* Fonte um pouco maior */
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1); /* Adiciona sombra leve */
+    transition: all 0.3s ease; /* Efeito suave ao focar */
+}
+
+.textfield h4{
+    align-items: center;
+}
+
+
+.textfield input:focus {
+    border-color: #006d56;
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(0, 109, 86, 0.6); /* Sombra ao focar */
+}
+
+/* Botões */
+.btn-login, .btn-cadastro {
+    width: 100%;
+    padding: 18px; /* Aumenta o espaçamento interno */
+    margin-top: 25px; /* Mais espaço entre os elementos */
+    font-size: 1.2rem; /* Texto maior */
+    border-radius: 10px; /* Cantos mais arredondados */
+    background-color: #006d56;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login:hover, .btn-cadastro:hover {
+    background-color: #25d451; /* Cor de destaque */
+}
+
+
+.login-link {
+    display: block; /* Garante que seja tratado como um bloco para centralização */
+    width: 100%; /* Igual aos inputs */
+    text-align: center; /* Alinha o conteúdo ao centro */
+    margin-top: 10px; /* Espaçamento superior entre inputs e link */
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.login-link a {
+    color: black; /* Define a cor do texto */
+    font-size: 1rem; /* Ajusta o tamanho da fonte para harmonia */
+    display: inline-block; /* Para melhor controle de centralização */
+    text-align: center; /* Centraliza o texto do link */
+    text-decoration: none;
+}
+
+.login-link:hover a {
+    color: #0056b3; /* Cor de destaque ao passar o mouse */
+}
+
+
+
+
+/*footer*/
+.footer {
+    background-color: #030f0b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+  
+.social-links {
+    margin-bottom: 10px;
+}
+  
+.social-icon {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+  
+.social-icon:hover {
+    color: #4CAF50; /* Cor de destaque ao passar o mouse */
+}

@@ -1,0 +1,511 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stalinist+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jockey+One&family=Metamorphous&family=Zen+Dots&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@font-face {
+    font-family: 'TheBeast';
+    src: url('fonts/TheBeast.otf') format('opentype'), 
+         url('fonts/TheBeast.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 600px; /* Diminua a altura conforme necessário */
+    position: relative;
+    overflow: hidden;
+    
+}
+
+.swiper-slide img {
+    width: 100%;
+    max-height: 550px; /* Ajuste conforme necessário */
+    object-fit: cover; /* Mantém o preenchimento da área */
+}
+
+.swiper-button-prev::after, .swiper-button-next::after {
+    top: 1%; /* Ajuste a porcentagem conforme necessário */
+    color: var(--bg-color);
+    
+}
+
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    font-family: "Roboto", sans-serif;
+}
+
+:root{
+    --bg-color: #dffaf0;
+    --text-color: #000000;
+    --main-color: #f0f0f0;
+    --other-color: #ffc633;
+    --second-color: #616060;
+
+    --h1-font: 5.5rem;
+    --h2-font: 3.5rem;
+    --p-font: 1rem;
+}
+
+body{
+    background-color:#dffaf0;
+    color: var(--text-color);
+}
+
+/* header igual a todas as paginas */
+
+
+
+.logo {
+    font-size: 30px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: whitesmoke;
+    font-family: "Audiowide";
+    animation: pulse 2s infinite; /* Adiciona a animação */
+    padding-left: 250px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0px 10px 50px black;
+    }
+    50% {
+        transform: scale(1.1);
+        text-shadow: 0px 15px 60px black;
+    }
+}
+
+header{
+    background-color: #006d56; /* Cor de fundo */
+    color: #fff;
+    box-shadow: 0 1px 6px 0 rgb(255, 255, 255);
+    padding: 15px; /* Ajuste conforme necessário */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    transition: all .6s;
+    position: relative; /* Garantir que o header não seja fixo inicialmente */
+    z-index: 10;
+}
+
+
+.navlist{
+    padding-left: 100px;
+    display: flex;
+    
+}
+
+.navlist  a{
+    display: inline-block;
+    margin: 0 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    transition: all .6s;
+    font-style: bold;
+}
+
+.navlist  a:hover{
+    color: #25d451; /* Altera a cor do texto ao passar o mouse */
+    background-color: #f0e5e5; /* Adiciona um fundo suave */
+    padding: 5px 10px; /* Adiciona um pequeno espaçamento */
+    border-radius: 5px; /* Deixa os cantos arredondados */
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra */
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+}
+
+.nav-right a{
+    display: inline-block;
+    font-size: 22px;
+    color: var(--text-color);
+    margin: 0 20px;
+    transition: all .6s;
+}
+
+.nav-right a:hover{
+    transform: translateY(-5px) scale(1.1);
+}
+
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    z-index: 10001;
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+
+
+/* PARTE DOAÇÃO */
+
+.donation-section {
+    margin-top: 0;
+    height: 700px; /* ajusta a altura */
+    text-align: center;
+    padding: 20px;
+    
+    
+}
+
+
+.donation-section h6 {
+    text-decoration: none;
+    font-size: 1.5rem;
+    
+}
+
+
+.donation-section h1{
+    margin-top: 0;
+    font-family: 'Merriweather Sans';
+    font-style: bolder;
+    font-size: 4rem;
+    padding-bottom: 00px;
+    
+    
+}
+
+.donation-grid {
+    height: 200px;
+    display: grid;
+    position: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.donation-card {
+    background-color: #27464e;
+    color: #fff;
+    border-radius: 10px;
+    height: 250px;
+    padding: 20px;
+    margin: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.donation-card img {
+    width: 120px; /* Ajuste conforme necessário */
+    margin-bottom: 5px;
+}
+
+.pix-donation {
+    background-color: #27464e;
+    color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.pix-donation img {
+    width: 110px; /* Ajuste conforme necessário */
+    margin-top: 10px;
+}
+
+button {
+    background-color: #00b894;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* investi */
+
+.investimento{
+    background-color: var(--bg-color);
+    width: 100%;
+    margin-bottom: 100px ;
+}
+
+.investimento-section {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.investimento-section h2{
+    font-size: 2.3rem;
+    align-items: center;
+}
+
+.investimento-item {
+    border-bottom: 1px solid #00a550;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.investimento-item p {
+    align-content: center;
+    margin: 0;
+}
+
+.investimento-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.investimento-header p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #00a550;
+    user-select: none;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #00a550;
+}
+
+.details {
+    display: none;
+    padding: 15px 0 0;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.details-content {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+.details p {
+    margin: 0;
+}
+
+
+
+/* apoio */
+.apoio-abrigos {
+    position: relative;
+    background-image: url('../imgs/aa.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-color: #dffaf0;
+    height: 800px; /* Ajuste a altura conforme necessário */
+    color: black;
+    padding: 20px;
+}
+
+/* Corrigir fluxo de layout */
+.apoio-abrigos::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.texto-container {
+    position: absolute; /* Permite a livre posição no pai */
+    top: 35%; /* Ajuste conforme necessário para posicionar */
+    right: 5%; /* Ajuste para manter o container à direita */
+    max-width: 700px;
+    background-color: rgba(0, 0, 0, 0.712); /* Fundo semitransparente para melhor legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(141, 141, 141, 0.808);
+}
+
+.texto-container h1 {
+    font-family: 'Merriweather Sans';
+    font-size: 2.3em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.texto-container p {
+    font-style: bolder;
+    font-size: 1.3em;
+    line-height: 1.5;
+    color: white;
+}
+
+.ler-mais {
+    display: inline-block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ler-mais:hover {
+    text-decoration: underline;
+}
+
+/* botão topo*/
+
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #006d56;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; /* Inicialmente invisível */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+}
+  
+#scrollToTopBtn:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 1024px) {
+    .logo {
+        font-size: 20px;
+    }
+
+    .navlist {
+        gap: 10px;
+    }
+
+    .donation-section h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .donation-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .texto-container {
+        top: 40%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 18px;
+    }
+
+    .navlist a {
+        font-size: 0.8rem;
+    }
+
+    .texto-container {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* footer */
+
+.footer {
+    background-color: #030f0b;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+  
+.social-links {
+    margin-bottom: 10px;
+}
+  
+.social-icon {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+  
+.social-icon:hover {
+    color: #4CAF50; /* Cor de destaque ao passar o mouse */
+}
+
+
+
+
+/* Responsivo para dispositivos móveis */
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column; /* Empilha o conteúdo */
+        align-items: center;
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .home-text, .home-image {
+        max-width: 70%; /* Limita a largura para melhor aparência em celulares */
+    }
+
+    .home-text h1 {
+        font-size: 2rem; /* Reduz o tamanho do título para caber melhor em telas pequenas */
+    }
+
+    .home-text p {
+        font-size: 1rem; /* Reduz o tamanho do texto */
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.5rem 1rem; /* Ajusta o botão para telas menores */
+    }
+}

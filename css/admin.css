@@ -1,0 +1,127 @@
+/* Reset básico */
+body, h1, p, table, th, td, input, select, button, a {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo geral */
+body {
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+}
+
+/* Tabela */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #006d56;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #f1f1f1;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+button[style*="background-color: red"] {
+    background-color: red;
+}
+
+button[style*="background-color: red"]:hover {
+    background-color: darkred;
+}
+
+
+/* Mensagem de sucesso ou erro */
+p {
+    text-align: center;
+    font-weight: bold;
+}
+
+p[style*="color: green"] {
+    color: #28a745;
+}
+
+p[style*="color: red"] {
+    color: #dc3545;
+}
+
+/* Link voltar */
+a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #006d56;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
