@@ -4,9 +4,9 @@ session_start();
 // Verifica se o usuário está logado e qual é o tipo de usuário
 if (isset($_SESSION['tipo_usuario'])) {
     if ($_SESSION['tipo_usuario'] == 'gerente') {
-        $redirectUrl = 'index2.php'; // Se for gerente, volta para o index2.php
+        $redirectUrl = 'painelgerente.php'; // Se for gerente, volta para o painel gerencial
     } elseif ($_SESSION['tipo_usuario'] == 'admin') {
-        $redirectUrl = 'indexadm.php'; // Se for admin, volta para o paineladm.php
+        $redirectUrl = 'indexadm.php'; // Se for admin, volta para o painel do administrador
     } else {
         $redirectUrl = 'index2.php'; // Default, caso não seja nem gerente nem admin
     }
@@ -51,75 +51,8 @@ if (isset($_POST['adicionar']) && ($is_admin || $is_gerente)) {
         $mysqli->commit();
         $sucesso_msg = "Projeto adicionado com sucesso!";
     } catch (Exception $e) {
-        // Caso ocorra algum erro, faz rollback da transação
         $mysqli->rollback();
         $erro_msg = "Erro ao adicionar projeto: " . $e->getMessage();
-    }
-}
-
-// Editar Projeto
-if (isset($_POST['editar'])) {
-    if (isset($_POST['titulo'], $_POST['descricao'], $_POST['data_inicio'], $_POST['data_fim'])) {
-        $projeto_id = $_POST['projeto_id'];
-        $titulo = $_POST['titulo'];
-        $descricao = $_POST['descricao'];
-        $data_inicio = $_POST['data_inicio'];
-        $data_fim = $_POST['data_fim'];
-
-        // Atualiza na tabela projeto_ativo
-        $stmt = $mysqli->prepare("UPDATE projeto_ativo SET titulo = ?, descricao = ?, data_inicio = ?, data_fim = ? WHERE projeto_id = ?");
-        $stmt->bind_param("ssssi", $titulo, $descricao, $data_inicio, $data_fim, $projeto_id);
-        $stmt->execute();
-        $stmt->close();
-
-        // Insere no histórico
-        $stmt = $mysqli->prepare("INSERT INTO historico_projeto (projeto_id, titulo, descricao, data_inicio, data_fim, status, acao) VALUES (?, ?, ?, ?, ?, 'ativo', 'editado')");
-        $stmt->bind_param("issss", $projeto_id, $titulo, $descricao, $data_inicio, $data_fim);
-        $stmt->execute();
-
-        $sucesso_msg = "Projeto editado com sucesso!";
-    }
-}
-
-// Finalizar Projeto
-if (isset($_POST['finalizar']) && ($is_admin || $is_gerente)) {
-    $projeto_id = $_POST['projeto_id'];
-
-    try {
-        // Verifica se o projeto já está finalizado
-        $stmt = $mysqli->prepare("SELECT projeto_id FROM projeto_ativo WHERE projeto_id = ?");
-        $stmt->bind_param("i", $projeto_id);
-        $stmt->execute();
-        $stmt->store_result();
-
-        if ($stmt->num_rows === 0) {
-            throw new Exception("Projeto não encontrado ou já finalizado.");
-        }
-        $stmt->close();
-
-        // Move o projeto para a tabela projeto_finalizado
-        $stmt = $mysqli->prepare("INSERT INTO projeto_finalizado (projeto_id, titulo, descricao, data_inicio, data_fim) SELECT projeto_id, titulo, descricao, data_inicio, data_fim FROM projeto_ativo WHERE projeto_id = ?");
-        $stmt->bind_param("i", $projeto_id);
-        $stmt->execute();
-        $stmt->close();
-
-        // Registra no histórico como finalizado
-        $stmt = $mysqli->prepare("INSERT INTO historico_projeto (projeto_id, titulo, descricao, data_inicio, data_fim, status, acao) SELECT projeto_id, titulo, descricao, data_inicio, data_fim, 'finalizado', 'finalizado' FROM projeto_ativo WHERE projeto_id = ?");
-        $stmt->bind_param("i", $projeto_id);
-        $stmt->execute();
-        $stmt->close();
-
-        // Exclui o projeto da tabela projeto_ativo
-        $stmt = $mysqli->prepare("DELETE FROM projeto_ativo WHERE projeto_id = ?");
-        $stmt->bind_param("i", $projeto_id);
-        $stmt->execute();
-        $stmt->close();
-
-        $mysqli->commit();
-        $sucesso_msg = "Projeto finalizado com sucesso!";
-    } catch (Exception $e) {
-        $mysqli->rollback();
-        $erro_msg = "Erro ao finalizar projeto: " . $e->getMessage();
     }
 }
 
@@ -145,16 +78,6 @@ if (isset($_POST['excluir']) && ($is_admin || $is_gerente)) {
     }
 }
 
-// Busca os projetos
-$query = $is_admin ? "SELECT * FROM projeto_ativo" : "SELECT * FROM projeto_ativo WHERE usuario_id = ?";
-$stmt = $mysqli->prepare($query);
-if ($is_gerente) {
-    $stmt->bind_param("i", $_SESSION['usuario_id']);
-}
-$stmt->execute();
-$result = $stmt->get_result();
-$projetos = $result->fetch_all(MYSQLI_ASSOC);
-$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -178,21 +101,32 @@ $stmt->close();
         <div class="sucesso"><?php echo $sucesso_msg; ?></div>
     <?php endif; ?>
 
-    <!-- Adicionar Projeto Form -->
-    <form method="post">
-        <h2>Adicionar Projeto</h2>
-        <label>Título:</label><input type="text" name="titulo" required><br>
-        <label>Descrição:</label><textarea name="descricao" required></textarea><br>
-        <label>Data de Início:</label><input type="date" name="data_inicio" required><br>
-        <label>Data de Fim:</label><input type="date" name="data_fim" required><br>
-        <button type="submit" name="adicionar">Adicionar Projeto</button>
-    </form>
+    <!-- form de cadastro de projeto -->
+    <button id="toggleFormBtn" class="btn-toggle">Cadastrar Projeto</button>
+    <div id="projectForm" class="form-container">
+        <form method="POST">
+            <label for="titulo">Nome do Projeto:</label>
+            <input type="text" id="titulo" name="titulo" required>
 
-    <!-- Lista de Projetos -->
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao" required></textarea>
+
+            <label for="data_inicio">Data de Início:</label>
+            <input type="date" id="data_inicio" name="data_inicio" required>
+
+            <label for="data_fim">Data de Término:</label>
+            <input type="date" id="data_fim" name="data_fim" required>
+
+            <button type="submit" name="adicionar">Cadastrar</button>
+        </form>
+    </div>
+
+    <!-- listagem dos projetos -->
     <table>
         <thead>
             <tr>
-                <th>Título</th>
+                <th>ID Responsável</th>
+                <th>Nome da campanha</th>
                 <th>Descrição</th>
                 <th>Data de Início</th>
                 <th>Data de Fim</th>
@@ -200,24 +134,44 @@ $stmt->close();
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($projetos as $projeto): ?>
+            <?php
+            $query = $is_admin ? "SELECT * FROM projeto_ativo" : "SELECT * FROM projeto_ativo WHERE usuario_id = ?";
+            $stmt = $mysqli->prepare($query);
+            if ($is_gerente) {
+                $stmt->bind_param("i", $_SESSION['usuario_id']);
+            }
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $projetos = $result->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
+
+            foreach ($projetos as $projeto): ?>
                 <tr>
+                    <td><?php echo htmlspecialchars($projeto['usuario_id']); ?></td>
                     <td><?php echo htmlspecialchars($projeto['titulo']); ?></td>
                     <td><?php echo htmlspecialchars($projeto['descricao']); ?></td>
-                    <td><?php echo htmlspecialchars($projeto['data_inicio']); ?></td>
-                    <td><?php echo htmlspecialchars($projeto['data_fim']); ?></td>
+                    <td><?php echo date("d/m/Y", strtotime($projeto['data_inicio'])); ?></td>
+                    <td><?php echo date("d/m/Y", strtotime($projeto['data_fim'])); ?></td>
                     <td>
-                        <form method="post" style="display:inline;">
+                        <form method="post" action="editar_projeto.php" style="display:column;">
                             <input type="hidden" name="projeto_id" value="<?php echo $projeto['projeto_id']; ?>">
-                            <button type="submit" name="editar">Editar</button>
-                            <button type="submit" name="finalizar">Finalizar</button>
-                            <button type="submit" name="excluir">Excluir</button>
+                            <button type="submit" class="editar">Editar</button>
+                        </form>
+                        <form method="post" style="display:column;">
+                            <input type="hidden" name="projeto_id" value="<?php echo $projeto['projeto_id']; ?>">
+                            <button type="submit" name="finalizar" class="finalizar">Finalizar</button>
+                        </form>
+                        <form method="post" style="display:column;">
+                            <input type="hidden" name="projeto_id" value="<?php echo $projeto['projeto_id']; ?>">
+                            <button type="submit" name="excluir" class="excluir">Excluir</button>
                         </form>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+
+    <script src="/cosmocrewONG/js/cadprojeto.js" defer></script>
 </body>
 
 </html>

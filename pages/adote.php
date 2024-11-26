@@ -80,11 +80,11 @@ $result = $mysqli->query("SELECT * FROM animais ORDER BY data_adicionado DESC");
             </div>
         </section>
     </main>
-    <hr>
+        <div class="brands">
+            <h1>Nossa galeria de momentos felizes.</h1>
+            <div class="main-brands"></div>
+        </div>            
     <section class="n-product">
-        <div class="center-text">
-            <h1>Algumas histórias com final feliz!</h1>
-        </div>
         <br>
         <div class="n-content">
             <div class="gallery-item">
@@ -160,7 +160,7 @@ $result = $mysqli->query("SELECT * FROM animais ORDER BY data_adicionado DESC");
         <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
     </footer>
 
-    <button id="scrollToTopBtn">↑ Voltar ao início</button>
+    <button id="scrollToTopBtn">↑ Voltar ao topo</button>
     <script src="/cosmocrewONG/js/adote.js"></script>
     <script src="/cosmocrewONG/js/global.js"></script>
 </body>   

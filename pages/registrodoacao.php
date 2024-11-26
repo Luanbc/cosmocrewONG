@@ -208,9 +208,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </footer>
 
 
-    <button id="scrollToTopBtn">↑ Voltar ao início</button>
+    <button id="scrollToTopBtn">↑ Voltar ao topo</button>
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="/cosmocrewONG/js/doacao.js" defer></script>
-    <script src="/cosmocrewONG/js/global.js" defer></script>
+    <script src="/cosmocrewONG/js/doacao.js"></script>
+    <script src="/cosmocrewONG/js/global.js"></script>
 </body>
 </html>

@@ -50,8 +50,8 @@ $result = $mysqli->query($query);
                 <td><?php echo htmlspecialchars($row['projeto_id']); ?></td>
                 <td><?php echo htmlspecialchars($row['titulo']); ?></td>
                 <td><?php echo htmlspecialchars($row['descricao']); ?></td>
-                <td><?php echo htmlspecialchars($row['data_inicio']); ?></td>
-                <td><?php echo htmlspecialchars($row['data_fim']); ?></td>
+                <td><?php echo date("d/m/Y", strtotime($row['data_inicio'])); ?></td>
+                <td><?php echo date("d/m/Y", strtotime($row['data_fim'])); ?></td>
                 <td><?php echo htmlspecialchars($row['usuario_id']); ?></td>
                 <td><?php echo htmlspecialchars($row['nome']); ?></td>
                 <td><?php echo htmlspecialchars($row['email']); ?></td>

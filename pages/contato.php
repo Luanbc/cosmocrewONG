@@ -96,7 +96,7 @@
        
 
         
-        <button id="scrollToTopBtn">↑ Voltar ao início</button>
+        <button id="scrollToTopBtn">↑ Voltar ao topo</button>
         <script src="/cosmocrewONG/js/global.js" defer></script>   
     </body>
 </html>

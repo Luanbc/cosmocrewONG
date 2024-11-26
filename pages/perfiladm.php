@@ -12,10 +12,10 @@ $usuario_id = $_SESSION['usuario_id'];
 $mensagem = "";
 
 // Busca os dados do administrador
-$stmt = $mysqli->prepare("SELECT foto, nome, email, telefone, data_nascimento, tipo_usuario FROM usuario WHERE usuario_id = ?");
+$stmt = $mysqli->prepare("SELECT nome, email, telefone, data_nascimento, tipo_usuario FROM usuario WHERE usuario_id = ?");
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
-$stmt->bind_result($foto, $nome, $email, $telefone, $data_nascimento, $tipo_usuario);
+$stmt->bind_result($nome, $email, $telefone, $data_nascimento, $tipo_usuario);
 $stmt->fetch();
 $stmt->close();
 ?>
@@ -43,14 +43,6 @@ $stmt->close();
 
     <div class="profile">
         <section class="profile-edit">
-            <!-- Exibe a foto do administrador -->
-            <div class="profile-photo">
-                <?php if ($foto): ?>
-                    <img src="/cosmocrewONG/pages/uploads/<?php echo htmlspecialchars($foto); ?>" alt="Foto do Administrador" style="width: 150px; height: 150px; border-radius: 50%;">
-                <?php else: ?>
-                    <p>Sem foto de perfil.</p>
-                <?php endif; ?>
-            </div>    
             <p><strong>Nome:</strong> <?php echo htmlspecialchars($nome); ?></p>
             <p><strong>Tipo:</strong> <?php echo htmlspecialchars($tipo_usuario); ?></p>
             <p><strong>Email:</strong> <?php echo htmlspecialchars($email); ?></p>
@@ -75,9 +67,6 @@ $stmt->close();
 
                     <label for="data_nascimento">Data de Nascimento:</label>
                     <input type="date" id="data_nascimento" name="data_nascimento" value="<?php echo htmlspecialchars($data_nascimento); ?>" required><br>
-
-                    <label for="foto">Foto de Perfil:</label>
-                    <input type="file" id="foto" name="foto" accept="image/*"><br>
 
                     <button type="submit">Atualizar Perfil</button>
                 </form>

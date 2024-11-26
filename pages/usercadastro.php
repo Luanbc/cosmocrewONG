@@ -111,7 +111,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <div class="cad-link">
                                 <a href="Login.php" class="cad-link">Já tem uma conta? Faça Login</a>
                             </div>
-                            
+                            <div class="cad-link">
+                                <a href="index2.php" class="cad-link">Voltar</a>
+                            </div>
                         </form>
                     </article>
                 </section>
@@ -132,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
 
         </div>
-        <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
+        <p>&copy; 2024 ONG Animália. Todos os direitos reservados.</p>
     </footer>
 
     <script src="../js/cad.js"></script>

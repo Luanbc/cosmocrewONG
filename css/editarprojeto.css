@@ -1,0 +1,185 @@
+/* Estilos gerais para o corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo para h1 */
+h1 {
+    text-align: center;
+    color: black;
+    margin: 20px 0;
+}
+
+/* Estilo para h2 */
+h2 {
+    color: black;
+    margin-bottom: 10px;
+}
+
+/* Links */
+a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #006d56;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 15px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: #2980b9;
+}
+
+/* Estilos iniciais para o formulário */
+.form-container {
+    align-items: center;
+    text-align: center;
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.63);
+    background-color: white;
+}
+
+.btn-toggle:hover {
+    background-color: #45a049;
+}
+
+/* Formulário inputs e botões */
+form label {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+form input,
+form textarea,
+form button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #006d56;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #27ae60;
+}
+
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (smartphones) */
+@media (max-width: 767px) {
+    /* Ajustes para o botão de toggle */
+    .btn-toggle {
+        margin-left: 30%;
+        width: 70%; /* Ajusta a largura do botão */
+    }
+
+    /* Ajuste da largura do formulário */
+    .form-container {
+        width: 100%;
+        margin-left: 0;
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        width: 100%;
+        font-size: 16px; /* Aumenta o tamanho da fonte para maior legibilidade */
+    }
+
+    table {
+        width: 100%; /* Ajusta a largura da tabela */
+        margin: 10px 0;
+    }
+
+    table button {
+        font-size: 10px; /* Reduz o tamanho da fonte dos botões */
+        padding: 4px 8px; /* Diminui o padding para melhor ajuste */
+    }
+
+    .sucesso,
+    .erro {
+        width: 90%; /* Ajusta a largura das mensagens */
+        margin: 10px auto;
+    }
+}
+
+/* Para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .btn-toggle {
+        margin-left: 40%;
+        width: 60%;
+    }
+
+    .form-container {
+        width: 80%;
+        margin-left: 10%;
+        padding: 20px;
+    }
+
+    form input,
+    form textarea,
+    form button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    table button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+/* Para telas grandes (desktops) */
+@media (min-width: 1025px) {
+    .btn-toggle {
+        margin-left: 45%;
+        width: auto;
+    }
+
+    .form-container {
+        width: 50%;
+        margin-left: 25%;
+        padding: 20px;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    table button {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+
+    .sucesso,
+    .erro {
+        width: 60%;
+    }
+}

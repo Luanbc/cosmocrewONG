@@ -2,10 +2,18 @@
 session_start();
 include '../includes/conexaodb.php';
 
-// Verifica se o usuário está logado
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
-    exit();
+// Verifica se o usuário está logado e qual é o tipo de usuário
+if (isset($_SESSION['tipo_usuario'])) {
+    if ($_SESSION['tipo_usuario'] == 'gerente') {
+        $redirectUrl = 'painelgerente.php'; 
+    } elseif ($_SESSION['tipo_usuario'] == 'admin') {
+        $redirectUrl = 'indexadm.php'; 
+    } else {
+        $redirectUrl = 'index2.php'; 
+    }
+} else {
+    header('Location: index2.php');
+    exit;
 }
 
 $usuario_id = $_SESSION['usuario_id'];
@@ -45,7 +53,7 @@ $stmt_ativos->close();
 </head>
 
 <body>
-    <a href="index2.php">Voltar</a>
+    <a href="<?php echo $redirectUrl; ?>">Voltar</a>
     <h1>Perfil de <?php echo htmlspecialchars($nome); ?></h1>
     <!-- Exibe mensagem de sucesso ou erro -->
     <?php if (!empty($mensagem)): ?>

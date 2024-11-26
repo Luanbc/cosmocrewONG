@@ -44,7 +44,7 @@ $result = $mysqli->query($query);
                         <td><?= htmlspecialchars($historico['adotante_email']) ?></td>
                         <td><?= htmlspecialchars($historico['adotante_telefone']) ?></td>
                         <td><?= htmlspecialchars($historico['adotante_endereco']) ?></td>
-                        <td><?= htmlspecialchars($historico['data_adocao']) ?></td>
+                        <td><?= date("d/m/Y", strtotime($historico['data_adocao'])) ?></td>
                     </tr>
                 <?php endwhile; ?>
             </tbody>

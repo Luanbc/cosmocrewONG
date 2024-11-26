@@ -60,153 +60,7 @@ h1 {
 .btn:hover {
         background-color: #14a37f;
 }
-    
 
-/* galeria */
-
-.gallery {
-    display: none; /* Esconde todas as galerias por padrão */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    justify-items: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.gallery.active {
-    display: grid; /* Mostra a galeria ativa */
-    opacity: 1;
-    visibility: visible;
-}
-
-
-
-.gallery-item {
-    position: relative;
-    column-gap: 5px;
-    width: 100%; /* Garante que o item ocupe o espaço da coluna */
-    max-width: 700px; /* Largura máxima para itens uniformes */
-    height: 650px; /* Define uma altura fixa */
-    border: 3px solid #000000;
-    border-radius: 25px;
-    overflow: hidden;
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ajusta a imagem ao contêiner sem distorcer */
-    display: block;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-    padding: 15px;
-    text-align: center;
-}
-
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
-
-.overlay h3 {
-    margin: 0 0 10px;
-    font-size: 1.5rem;
-}
-
-.overlay p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-.buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.icon-button {
-    background-color: #14a37f;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-}
-
-.icon-button:hover {
-    background-color: #0e472c;
-}
-
-/* inicio*/
-
-.sobre-instituto {
-    position: relative;
-    background-image: url('../imgs/adote.jpg'); /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-position: center;
-    background-color: #dffaf0;
-    height: 900px; /* Ajuste a altura conforme necessário */
-    color: black;
-    padding: 20px;
-}
-
-/* Corrigir fluxo de layout */
-.sobre-instituto::after {
-    content: "";
-    display: block;
-    clear: both;
-}
-
-.texto-container {
-    position: absolute; /* Permite a livre posição no pai */
-    top: 25%; /* Ajuste conforme necessário para posicionar acima da cabeça do gato */
-    left: 5%; /* Ajuste para manter o container à direita */
-    max-width: 700px;
-    background-color: rgba(29, 28, 28, 0.678); /* Fundo semitransparente para melhor legibilidade */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.texto-container h1 {
-    font-family: 'Merriweather Sans';
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.texto-container p {
-    font-style: bolder;
-    font-size: 1.5em;
-    line-height: 1.5;
-    color: white;
-}
-
-.ler-mais {
-    display: inline-block;
-    margin-top: 15px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.ler-mais:hover {
-    text-decoration: underline;
-}
 
 /*header*/
 
@@ -308,13 +162,153 @@ section {
     padding: 90px 14% 70px;
 }
 
-.hr {
-    border: 1px solid #ccc; 
-    margin: 20px 0;
+
+/*primeira imagem do adote*/
+
+.sobre-instituto {
+    position: relative;
+    background-image: url('../imgs/adote.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-color: #dffaf0;
+    height: 900px; /* Ajuste a altura conforme necessário */
+    color: black;
+    padding: 20px;
+}
+
+/* Corrigir fluxo de layout */
+.sobre-instituto::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.texto-container {
+    position: absolute; /* Permite a livre posição no pai */
+    top: 25%; /* Ajuste conforme necessário para posicionar acima da cabeça do gato */
+    left: 5%; /* Ajuste para manter o container à direita */
+    max-width: 700px;
+    background-color: rgba(29, 28, 28, 0.678); /* Fundo semitransparente para melhor legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.texto-container h1 {
+    font-family: 'Merriweather Sans';
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.texto-container p {
+    font-style: bolder;
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: white;
+}
+
+.ler-mais {
+    display: inline-block;
+    margin-top: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ler-mais:hover {
+    text-decoration: underline;
+}
+
+/* animais pra adoção */
+
+.gallery {
+    display: grid; /* Esconde todas as galerias por padrão */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.gallery.active {
+    display: grid; /* Mostra a galeria ativa */
+    opacity: 1;
+    visibility: visible;
+}
+
+.gallery-item {
+    position: relative;
+    column-gap: 5px;
+    width: 100%; /* Garante que o item ocupe o espaço da coluna */
+    max-width: 650px; /* Largura máxima para itens uniformes */
+    height: 500px; 
+    border: 3px solid #000000;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem ao contêiner sem distorcer */
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    padding: 15px;
+    text-align: center;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+}
+
+.overlay p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-button {
+    background-color: #14a37f;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.icon-button:hover {
+    background-color: #0e472c;
 }
 
 
-/* galeria dos animais adotas */
+/* galeria dos animais adotados */
 .n-product{
     background-color: #dffaf0;
 }
@@ -434,6 +428,36 @@ section {
 #scrollToTopBtn:hover {
     background-color: #45a049;
 }
+
+
+.brands{
+    padding: 30px 14%;
+    background: var(--text-color);
+    background-color: black;
+}
+
+.brands h1{
+    color: white;
+    font-size: rem;
+    font-family:'Merriweather Sans';
+    text-align: center; /* Centraliza o texto dentro do contêiner */
+}
+
+.brands p{
+    font-size: rem;
+    font-family: 'Merriweather Sans';
+    text-align: center;
+}
+
+.main-brands{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+
 
 
 /* Responsividade */

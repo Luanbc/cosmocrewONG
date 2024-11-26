@@ -40,13 +40,12 @@ $projetos_finalizados = $result_finalizados->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td><?php echo htmlspecialchars($projeto['titulo']); ?></td>
             <td><?php echo htmlspecialchars($projeto['descricao']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['data_inicio']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['data_fim']); ?></td>
+            <td><?php echo date("d/m/Y", strtotime($projeto['data_inicio'])); ?></td>
+            <td><?php echo date("d/m/Y", strtotime($projeto['data_fim'])); ?></td>
             <td><?php echo htmlspecialchars($projeto['status']); ?></td>
         </tr>
         <?php endforeach; ?>
     </table>
-
     <br>
     <a href="indexadm.php">
         <button type="button">Voltar</button>

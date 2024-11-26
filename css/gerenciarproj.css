@@ -1,190 +1,302 @@
+/* Estilos gerais para o corpo */
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-
-h1, h2 {
-    text-align: center;
+    background-color: #f9f9f9;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
-table {
-    width: 90%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-table th, table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-table th {
-    background: #006d56;
-    color: #fff;
-    text-transform: uppercase;
-}
-
-table tr:hover {
-    background: #f9f9f9;
-}
-
-form {
-    width: 90%;
-    margin: 20px auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-form input, form textarea {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 10px 15px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
-}
-
-
-button.editar {
-    background: #0056b3;
-    color: #fff;
-}
-
-button.editar:hover {
-    background: #003d80;
-}
-
-button.excluir {
-    background: #e63946;
-    color: #fff;
-}
-
-button.excluir:hover {
-    background: #b02a36;
-}
-
-button.finalizar {
-    background: #38b000;
-    color: #fff;
-    font-size: 12px;
-    padding: 5px 10px;
-}
-
-button.finalizar:hover {
-    background: #2d8600;
-}
-
-/* Mensagens de erro e sucesso */
-.erro {
-    color: red;
+/* Estilo para h1 */
+h1 {
     text-align: center;
+    color: black;
+    margin: 20px 0;
 }
 
-.sucesso {
-    color: green;
-    text-align: center;
+/* Estilo para h2 */
+h2 {
+    color: black;
+    margin-bottom: 10px;
 }
 
-/* Link voltar */
+/* Links */
 a {
     display: inline-block;
     text-decoration: none;
     background-color: #006d56;
     color: white;
-    padding: 8px 15px;
-    border-radius: 3px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 15px;
     text-align: center;
-    font-size: 14px;
-    margin-top: 20px;
 }
 
 a:hover {
-    background-color: #0056b3;
+    background-color: #2980b9;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    body {
-        margin: 10px;
-        padding: 10px;
+/* Estilos iniciais para o formulário */
+.form-container {
+    text-align: center;
+    display: none;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+    width: 100%;
+    max-width: 500px;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Suaviza o efeito */
+}
+
+/* Botão para abrir/fechar o formulário */
+.btn-toggle {
+    margin-left: 45%;
+    background-color: #006d56; 
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.btn-toggle:hover {
+    background-color: #45a049;
+}
+
+/* Quando o formulário está visível */
+.form-container.open {
+    display: block;
+    max-height: 500px; /* Define uma altura máxima para o formulário expandido */
+    padding: 20px; 
+    margin-left: 35%;
+}
+
+/* Formulário inputs e botões */
+form label {
+    width: 100%;
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+}
+
+form input,
+form textarea,
+form button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #006d56;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #27ae60;
+}
+
+/* Tabela */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+table th,
+table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+table td {
+    color: black;
+}
+
+/* Botões na tabela */
+table button {
+    padding: 5px 10px; /* Ajuste o padding para diminuir o tamanho do botão */
+    margin: 0; /* Remover margem extra ao redor do botão */
+    border: none; /* Remover bordas extras */
+    border-radius: 3px; /* Deixar bordas arredondadas */
+    background-color: transparent; /* Remover fundo extra */
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block; /* Impedir que o botão ocupe mais espaço do que necessário */
+    width: auto; /* Não definir largura fixa, permitindo que o botão seja ajustado ao seu conteúdo */
+    box-sizing: content-box; /* Ajustar o box-sizing para que o padding não afete a largura */
+    text-align: center;
+}
+
+
+button.editar {
+    /* Seus estilos para o botão "editar" */
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+table button[name="finalizar"] {
+    background-color: #e67e22;
+    color: white;
+}
+
+table button[name="excluir"] {
+    background-color: #e74c3c;
+    color: white;
+}
+
+table button:hover {
+    opacity: 0.8; /* Um leve efeito de hover para destacar o botão */
+}
+
+/* Colocar os botões em uma coluna */
+td form {
+    display: flex;
+    align-items: stretch;
+    margin: 1px;
+    padding: 1px;
+    flex-direction: column;
+}
+
+/* Mensagens de sucesso e erro */
+.sucesso {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.erro {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Media Queries para Responsividade */
+
+/* Para telas pequenas (smartphones) */
+@media (max-width: 767px) {
+    /* Ajustes para o botão de toggle */
+    .btn-toggle {
+        margin-left: 30%;
+        width: 70%; /* Ajusta a largura do botão */
     }
 
-    table {
+    /* Ajuste da largura do formulário */
+    .form-container {
         width: 100%;
-    }
-
-    table th, table td {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    form {
-        width: 100%;
+        margin-left: 0;
+        max-width: 100%;
         padding: 15px;
     }
 
-    form input, form textarea {
-        padding: 8px;
-    }
-
+    form input,
+    form textarea,
     form button {
-        padding: 8px 12px;
-        font-size: 14px;
+        width: 100%;
+        font-size: 16px; /* Aumenta o tamanho da fonte para maior legibilidade */
     }
 
-    button.finalizar {
-        font-size: 10px;
-        padding: 5px 8px;
+    table {
+        width: 100%; /* Ajusta a largura da tabela */
+        margin: 10px 0;
     }
 
-    h1, h2 {
-        font-size: 18px;
+    table button {
+        font-size: 10px; /* Reduz o tamanho da fonte dos botões */
+        padding: 4px 8px; /* Diminui o padding para melhor ajuste */
+    }
+
+    .sucesso,
+    .erro {
+        width: 90%; /* Ajusta a largura das mensagens */
+        margin: 10px auto;
     }
 }
 
-@media (max-width: 480px) {
-    table th, table td {
-        padding: 8px;
-        font-size: 12px;
+/* Para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .btn-toggle {
+        margin-left: 40%;
+        width: 60%;
     }
 
-    form {
-        padding: 10px;
+    .form-container {
+        width: 80%;
+        margin-left: 10%;
+        padding: 20px;
     }
 
+    form input,
+    form textarea,
     form button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    table {
+        width: 90%;
+    }
+
+    table button {
         font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+/* Para telas grandes (desktops) */
+@media (min-width: 1025px) {
+    .btn-toggle {
+        margin-left: 45%;
+        width: auto;
     }
 
-    button.finalizar {
-        font-size: 10px;
-        padding: 5px;
+    .form-container {
+        width: 50%;
+        margin-left: 25%;
+        padding: 20px;
     }
 
-    h1, h2 {
-        font-size: 16px;
+    table {
+        width: 90%;
     }
 
-    a {
+    table button {
         font-size: 12px;
-        padding: 6px 10px;
+        padding: 5px 10px;
+    }
+
+    .sucesso,
+    .erro {
+        width: 60%;
     }
 }

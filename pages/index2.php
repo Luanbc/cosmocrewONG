@@ -54,7 +54,7 @@ session_start();
 
             <?php if (isset($_SESSION['usuario_id']) && isset($_SESSION['tipo_usuario']) && $_SESSION['tipo_usuario'] === 'gerente'): ?>
         <!-- Exibe a opção Gerenciar Projetos se o usuário logado for gerente -->
-            <li><a href="../pages/gerenciarprojetos.php">Gerenciar Projetos</a></li>
+            <li><a href="../pages/painelgerente.php">Painel Gerente</a></li>
             <?php endif; ?>
 
             <?php if (!isset($_SESSION['usuario_id'])): ?>
@@ -193,6 +193,7 @@ session_start();
         </div>
         <div class="image-content"></div>
     </section>
+
     <footer class="footer">
         <div class="social-links">
             <a href="https://facebook.com" target="_blank" class="social-icon">
@@ -204,11 +205,11 @@ session_start();
             <a href="https://instagram.com" target="_blank" class="social-icon">
                 <i class="fab fa-instagram"></i>
             </a>
-
         </div>
-        <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
+        <p>&copy; 2024 ONG Animália. Todos os direitos reservados.</p>
     </footer>   
-    <script src="/cosmocrewONG/js/index.js" defer></script>            
+
+    <script src="/cosmocrewONG/js/index.js"></script>            
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
