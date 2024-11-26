@@ -1,12 +1,16 @@
 <?php
 require_once '../includes/conexaodb.php';
 
+// Verificar se o formulário foi enviado corretamente
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['animal_id'], $_POST['nome'], $_POST['email'], $_POST['telefone'], $_POST['endereco'], $_FILES['fotos_comprovante'])) {
     $animal_id = $_POST['animal_id'];
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $telefone = $_POST['telefone'];
     $endereco = $_POST['endereco'];
+
+    // Se o usuário estiver logado, recupera o usuario_id da sessão, senão, usa NULL ou 0
+    $usuario_id = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : NULL;
 
     // Validar os dados recebidos
     if (empty($animal_id) || empty($nome) || empty($email) || empty($endereco)) {
@@ -22,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['animal_id'], $_POST['
     }
 
     // Inserir dados na tabela de adoções
-    $stmt = $mysqli->prepare("INSERT INTO adocoes (animal_id, nome, email, telefone, endereco) VALUES (?, ?, ?, ?, ?)");
-    $stmt->bind_param("issss", $animal_id, $nome, $email, $telefone, $endereco);
+    $stmt = $mysqli->prepare("INSERT INTO adocoes (animal_id, usuario_id, nome, email, telefone, endereco) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("iissss", $animal_id, $usuario_id, $nome, $email, $telefone, $endereco);
 
     if ($stmt->execute()) {
         // Obter o ID da adoção recém-inserida

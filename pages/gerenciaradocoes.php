@@ -3,14 +3,14 @@
 session_start();
 
 if ($_SESSION['tipo_usuario'] === 'admin') {
-    // O usuário é um administrador, então ele tem acesso a funcionalidades restritas
+    
 } else {
-    // Redirecionar ou mostrar mensagem de acesso restrito
+    
     echo "Você não tem permissão para acessar esta página.";
 }
 
-// Incluir a conexão com o banco de dados
-require_once '../includes/conexaodb.php'; // Ajuste conforme o caminho do seu arquivo de conexão
+
+require_once '../includes/conexaodb.php'; 
 
 // Consultar todas as adoções com fotos associadas
 $query = "SELECT a.id, a.nome, a.email, a.telefone, a.status, a.data_adocao, an.nome AS animal_nome, 

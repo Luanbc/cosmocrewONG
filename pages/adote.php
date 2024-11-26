@@ -58,7 +58,6 @@ $result = $mysqli->query("SELECT * FROM animais ORDER BY data_adicionado DESC");
             </p>
         </div>
     </section>
-
     <main>
         <section class="container">
             <h1>Adote um Amigo</h1>
@@ -73,13 +72,77 @@ $result = $mysqli->query("SELECT * FROM animais ORDER BY data_adicionado DESC");
                             <p><strong>Idade:</strong> <?= htmlspecialchars($animal['idade'] ?: 'Não informada') ?></p>
                             <p><?= htmlspecialchars($animal['descricao']) ?></p>
                             <!-- Botão para redirecionar -->
-                            <button class="adotar-btn" onclick="redirecionarFormulario(<?= $animal['id'] ?>)">Quero Adotar</button>
+                            <button class="adotar-btn" onclick="redirecionarFormulario(<?= intval($animal['id']) ?>)">Quero Adotar</button>
+
                         </div>
                     </div>
                 <?php endwhile; ?>
             </div>
         </section>
     </main>
+    <hr>
+    <section class="n-product">
+        <div class="center-text">
+            <h1>Algumas histórias com final feliz!</h1>
+        </div>
+        <br>
+        <div class="n-content">
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria1.png" alt="Ana e Luna">
+                <div class="overlay">
+                    <h3>Ana e Luna</h3>
+                    <p>Ana sempre sonhou em ter um cachorro, mas o trabalho remoto durante a pandemia trouxe solidão. Foi quando encontrou Luna, uma cadela vira-lata resgatada pela ONG. 
+                        Desde a adoção, Luna é sua companheira fiel durante o expediente. "Ela trouxe alegria e rotina para meus dias! Agora, trabalhar em casa nunca mais será solitário."</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria2.png" alt="Carlos e Bolota">
+                <div class="overlay">
+                    <h3> Carlos e Bolota</h3>
+                    <p>Carlos foi à feira de adoção apenas para "dar uma olhada". No entanto, quando viu Bolota, um gato preto com olhos brilhantes, foi amor à primeira vista. 
+                    "Ele é carinhoso e adora dormir no meu colo. Não consigo imaginar a casa sem ele!"</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria3.png" alt="Júlia e Max">
+                <div class="overlay">
+                    <h3>Júlia e Max</h3>
+                    <p>Júlia queria motivação para se exercitar e decidiu adotar Max, um cachorro cheio de energia. Agora, eles caminham juntos todos os dias no parque. 
+                        "Max mudou minha rotina. Estamos mais saudáveis e felizes juntos!"</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria4.png" alt="Pedro e Mel">
+                <div class="overlay">
+                    <h3>Pedro e Mel</h3>
+                    <p>Após enfrentar um período difícil, Pedro adotou Mel, uma gatinha tímida. Com o tempo, ela se adaptou e trouxe luz para os dias de Pedro. 
+                        "Mel me ajudou a sair da cama nos dias difíceis. Hoje, somos inseparáveis."</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria5.png" alt="Sofia, João e Thor">
+                <div class="overlay">
+                    <h3>Sofia, João e Thor</h3>
+                    <p>Sofia e João queriam ensinar ao filho o valor do cuidado. Adotaram Thor, um cachorro grande e carinhoso. "Thor virou o irmão mais velho do João. Eles brincam o dia inteiro, e a casa está mais cheia de vida."</p>
+                </div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="../imgs/galeria/galeria6.png" alt="Maria e Amora">
+                <div class="overlay">
+                    <h3>Maria e Amora</h3>
+                    <p>Após se aposentar, Maria sentia falta de companhia. Foi então que encontrou Amora, uma cadela que também precisava de um novo começo.
+                         "Adotar Amora foi a melhor decisão da minha vida. Ela me acompanha em tudo, e nunca me sinto sozinha."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 
     <footer class="footer">
         <div class="social-links">

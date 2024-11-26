@@ -188,8 +188,8 @@ section {
 .texto-container {
     position: absolute; /* Permite a livre posição no pai */
     top: 10%; /* Ajuste conforme necessário para posicionar acima da cabeça do gato */
-    right: 5%; /* Ajuste para manter o container à direita */
-    max-width: 700px;
+    right: 10%; /* Ajuste para manter o container à direita */
+    max-width: 500px;
     background-color: rgba(0, 0, 0, 0.144); /* Fundo semitransparente para melhor legibilidade */
     padding: 20px;
     border-radius: 10px;
@@ -317,7 +317,7 @@ section {
 
 .mission-section {
     position: relative;
-    background-image: url('../imgs/jaguar1.png'); /* Substitua pelo caminho da sua imagem */
+    background-image: url('../imgs/jaguar2.png'); /* Substitua pelo caminho da sua imagem */
     background-size: cover;
     background-position: center;
     background-color: #dffaf0;
@@ -328,8 +328,8 @@ section {
 }
 
 
-.text-content {
-    margin-top: 200px; 
+.text-content { 
+    margin-bottom: 100px;
     max-width: 500px;
     background-color: rgba(0, 0, 0, 0.144); /* Fundo semitransparente para melhor legibilidade */
     padding: 20px;
@@ -400,6 +400,59 @@ section {
 .brands-c img{
     width: 100%;
     height: auto;
+}
+
+/*  voluntarios*/
+.voluntario-section {
+    position: relative;
+    background-image: url('../imgs/voluntario.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-color: #dffaf0;
+    height: 700px; /* Ajuste a altura conforme necessário */
+    color: black;
+    padding: 20px;
+    padding-left: 60px;
+}
+
+.text-content {
+    margin-top: 100px; 
+    max-width: 500px;
+    background-color: rgba(0, 0, 0, 0.562); /* Fundo semitransparente para melhor legibilidade */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(207, 203, 203, 0.3);
+}
+
+.text-content  h1 {
+    color: white;
+    font-family: 'Merriweather Sans';
+    font-size: 2.3em;
+    margin-bottom: 10px;
+}
+
+.text-content  p {
+    color: white;
+    font-style: bolder;
+    font-size: 1.3em;
+    line-height: 1.5;
+}
+ 
+.btn-contribute {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+  
+.btn-contribute:hover {
+    background-color: #00ff00;
+    color: #000;
 }
 
 /* FOOTER */
@@ -485,7 +538,7 @@ section {
     }
 
     .mission-section {
-        height: 600px;
+        height: 500px;
         padding-left: 20px;
     }
 
@@ -553,6 +606,10 @@ section {
 
     .mission-section {
         height: 500px;
+    }
+
+    .text-content{
+        margin-top: 50px;
     }
 
     section {

@@ -3,9 +3,10 @@
 require_once '../includes/conexaodb.php'; // Ajuste conforme o caminho do seu arquivo de conexão
 
 // Consultar o histórico de adoções
-$query = "SELECT h.id, h.animal_nome, h.adotante_nome, h.adotante_email, h.adotante_telefone, h.adotante_endereco, h.data_adocao
+$query = "SELECT h.id_adocao, h.animal_id, h.animal_nome, h.adotante_nome, h.adotante_email, h.adotante_telefone, h.adotante_endereco, h.data_adocao
           FROM historico_adocoes h
           ORDER BY h.data_adocao DESC";
+
 $result = $mysqli->query($query);
 
 ?>

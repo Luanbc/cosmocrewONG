@@ -49,9 +49,9 @@ $stmt->close();
 
             <li><a href="gerenciarprojetos.php">Gerenciar Projetos</a></li>
 
-            <li><a href="historicoprojetos.php">Histórico de Projetos</a></li>
+            <li><a href="relatorio.php">Relatórios de Projetos</a></li>
 
-           <li><a href="relatorio.php">Relatórios de Projetos</a></li>
+            <li><a href="historicoprojetos.php">Histórico de Projetos</a></li>         
     
             <li><a href="listausuario.php">Gerenciar Usuários</a></li>
 

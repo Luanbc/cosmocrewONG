@@ -71,14 +71,11 @@
                 <input type="text" name="" id="" placeholder="E-mail:" required>
                 <input type="tel" name="" id="" placeholder="Telefone para contato:">
                 <textarea name="" id="" placeholder="Escreva sua mensagem" required></textarea>
-
                 <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
             </form>
         </div>
-
     </section>
 
-   
         <footer class="footer">
             <div class="social-links">
                 <a href="https://facebook.com" target="_blank" class="social-icon">

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     // Definindo o tipo de usuário
     // O valor do tipo de usuário pode ser passado como 'voluntario', 'gerente' ou 'admin', se necessário
-    $tipo_usuario = 'voluntario'; // Ajustado para refletir o nome da coluna no banco de dados
+    $tipo_usuario = 'usuario'; // Ajustado para refletir o nome da coluna no banco de dados
 
     // Validação da senha
     if (strlen($senha) < 8 || !preg_match('/[A-Z]/', $senha) || !preg_match('/[!@#$%^&*(),.?":{}|<>]/', $senha)) {
@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         try {
             // Preparando a chamada da stored procedure para cadastrar o usuário
-            $stmt = $mysqli->prepare("CALL inserir_usuario(?, ?, ?, ?)");
+            $stmt = $mysqli->prepare("CALL inserir_usuario(?, ?, ?, ?, ?, ?)");
 
             // Vinculando os parâmetros da query
-            $stmt->bind_param("ssss", $nome, $email, $senhaHash, $tipo_usuario); // Usando tipo_usuario aqui
+            $stmt->bind_param("ssssss", $nome, $email, $senhaHash, $tipo_usuario, $telefone, $data_nascimento); // Usando tipo_usuario aqui
 
             // Executando a instrução
             if ($stmt->execute()) {

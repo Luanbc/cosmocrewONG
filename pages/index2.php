@@ -146,23 +146,17 @@ session_start();
             </div>
         </div>
     </section>
-
-
     <section class="mission-section">
         <div class="text-content">
             <h1>Missão</h1>
             <p>
                 Lutar pela defesa dos direitos animais por meio de ações ativas e
-                preventivas, que valorizem práticas sustentáveis e potencializem forças
-                para uma transformação integrada.
+                preventivas, que valorizem práticas sustentáveis.
             </p>
             <a href="../pages/registrodoacao.php" class="btn-contribute">Contribuir</a>
         </div>
         <div class="image-content"></div>
     </section>
-
-
-
     <div class="brands">
         <h1>Empresas que nos apoiam.</h1>
         <p>Com a ajuda de grandes empresas, conseguimos nos manter lutando pelos direitos dos animais e levar
@@ -189,21 +183,16 @@ session_start();
             </div>
         </div>
     </div>
-
-    <section class="mission-section">
+    <section class="voluntario-section">
         <div class="text-content">
             <h1>SEJA UM VOLUNTÁRIO</h1>
             <p>
-                Lutar pela defesa dos direitos animais por meio de ações ativas e
-                preventivas, que valorizem práticas sustentáveis e potencializem forças
-                para uma transformação integrada.
+            Estamos procurando pessoas com amor pelos animais para fazer parte da nossa ONG. Você pode ajudar em feiras de adoção, cuidados com os resgatados e campanhas.
             </p>
-            <a href="../pages/registrodoacao.php" class="btn-contribute">Contribuir</a>
+            <a href="../pages/projetos.php" class="btn-contribute">Seja VOLUNTÁRIO</a>
         </div>
         <div class="image-content"></div>
     </section>
-
-
     <footer class="footer">
         <div class="social-links">
             <a href="https://facebook.com" target="_blank" class="social-icon">
@@ -218,9 +207,7 @@ session_start();
 
         </div>
         <p>&copy; 2024 Seu Site. Todos os direitos reservados.</p>
-    </footer>
-
-    
+    </footer>   
     <script src="/cosmocrewONG/js/index.js" defer></script>            
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>

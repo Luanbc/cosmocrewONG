@@ -59,14 +59,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $projetos = $result->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
-
-// Consulta para listar projetos finalizados
-$query_finalizados = "
-    SELECT hp.projeto_id, hp.titulo, hp.descricao, hp.data_inicio, hp.data_fim, hp.status 
-    FROM historico_projeto hp
-    WHERE hp.status = 'finalizado'";
-$result_finalizados = $mysqli->query($query_finalizados);
-$projetos_finalizados = $result_finalizados->fetch_all(MYSQLI_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -124,27 +116,6 @@ $projetos_finalizados = $result_finalizados->fetch_all(MYSQLI_ASSOC);
         </tr>
         <?php endforeach; ?>
     </table>
-
-    <h2>Projetos Finalizados</h2>
-    <table border="1">
-        <tr>
-            <th>Título</th>
-            <th>Descrição</th>
-            <th>Data de Início</th>
-            <th>Data de Fim</th>
-            <th>Status</th>
-        </tr>
-        <?php foreach ($projetos_finalizados as $projeto): ?>
-        <tr>
-            <td><?php echo htmlspecialchars($projeto['titulo']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['descricao']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['data_inicio']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['data_fim']); ?></td>
-            <td><?php echo htmlspecialchars($projeto['status']); ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-
     <br>
     <a href="index2.php">
         <button type="button">Voltar</button>

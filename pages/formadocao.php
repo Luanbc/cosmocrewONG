@@ -61,6 +61,5 @@ if (!$animal) {
 
     </div>
 </body>
-
 </html>
 

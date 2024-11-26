@@ -3,7 +3,7 @@ session_start();
 
 // Verificar se o usuário é admin
 if (!isset($_SESSION['usuario_id']) || $_SESSION['tipo_usuario'] !== 'admin') {
-    header('Location: login.php'); // Redireciona para login
+    header('Location: login.php'); 
     exit();
 }
 
@@ -55,13 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['adicionar'])) {
     $stmt = $mysqli->prepare("INSERT INTO animais (nome, especie, raca, idade, descricao, foto_url) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("sssiss", $nome, $especie, $raca, $idade, $descricao, $foto_path);
 
+    // O ID será gerado automaticamente como AUTO_INCREMENT, então não é necessário se preocupar com isso.
     if ($stmt->execute()) {
-        header('Location: indexadm.php'); // Redireciona para a página de adoção
+        header('Location: addanimal.php'); // Redireciona para a página de adoção
         exit();
     } else {
         echo "Erro ao adicionar animal: " . $mysqli->error;
     }
     $stmt->close();
+
 }
 
 // Excluir animal
