@@ -4,7 +4,6 @@ USE cosmocrewONG;
 -- GRANTS UTILIZADOS
 CREATE USER 'admin_cosmocrew'@'localhost' IDENTIFIED BY 'Extreme07@';
 CREATE USER 'gerente_cosmocrew'@'localhost' IDENTIFIED BY 'Gerente2024';
-CREATE USER 'voluntario_cosmocrew'@'localhost' IDENTIFIED BY 'Voluntario2024';
 CREATE USER 'usuario@localhost' IDENTIFIED BY '';
 
 GRANT ALL PRIVILEGES ON cosmocrewong.* TO 'admin_cosmocrew'@'localhost' WITH GRANT OPTION; 
